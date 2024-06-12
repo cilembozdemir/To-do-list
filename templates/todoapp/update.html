@@ -1,0 +1,37 @@
+
+{% extends "todoapp/base.html" %}
+
+{% block title %}
+
+<div class="text-center">
+  <div class="jumbotron">
+  <center><h1 class="display-4">TO DO LIST!</h1></center>
+  <p class="lead">This is a to do list for Python Django development.</p>
+  <hr class="my-4">
+  <p>Add new things to do in TO DO List.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'create' %}" role="button">Create a new TO DO</a>
+  </p>
+  </div>
+</div>
+{% endblock title %}
+
+{% block content %}
+    <h1> Create a new list </h1>
+<div>
+<form method = "POST" >
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">To-do Title</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" name="title">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <input type="text" class="form-control" name="description">
+  </div>
+
+  <button type="submit" class="btn btn-primary">update</button>
+</form>
+
+  </div>
+{% endblock content %}
